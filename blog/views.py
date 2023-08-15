@@ -11,9 +11,9 @@ def listar_publicaciones(request):
     else:
         mensaje = 'No hay publicaciones creadas.'
         context = {'mensaje': mensaje}
-    return render(request, 'blog/lista_publicaciones', context)
+    return render(request, 'blog/lista_publicaciones.html', context)
 
 def detallar_publicacion(request, pk):
     publicacion = get_object_or_404(Blogs, pk=pk)
     creador = publicacion.creador
-    return render(request, 'blog/detalle_publicaciones', {'publicacion': publicacion, 'creador': creador})
+    return render(request, 'blog/detalle_publicacion.html', {'publicacion': publicacion, 'creador': creador})
